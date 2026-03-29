@@ -95,8 +95,8 @@ ssh-add ~/.ssh/id_ed25519
 
 ### Projets Liés
 
-- [BIXXY_BIKE_BACKLIGHT](https://github.com/HumbertNguyen/BIXXY_BIKE_BACKLIGHT) - Contrôleur backlight moteur
-- [BIXXY_BIKE_UI](https://github.com/HumbertNguyen/bixxy-bike-ui) - UI clignotants/statut (ce repo)
+- [BIXXY_BIKE_BACKLIGHT](https://github.com/Humbertkillyan/bixxy-bike-backlight) - Contrôleur backlight moteur
+- [BIXXY_BIKE_UI](https://github.com/Humbertkillyan/bixxy-bike-ui) - UI clignotants/statut (ce repo)
 
 ---
 
