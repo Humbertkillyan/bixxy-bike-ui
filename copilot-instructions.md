@@ -53,29 +53,59 @@ Interface utilisateur pour un vélo électrique utilisant :
 
 ## 📚 Bibliothèques Requises
 
-### Installation via Arduino IDE
-
-1. **Seeed_Arduino_RoundDisplay**
+### 1. Seeed_Arduino_RoundDisplay (OBLIGATOIRE)
    ```
-   https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay.git
+   GitHub: https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay
    ```
-   - Pilote d'écran et tactile
+   - **Rôle:** Pilote du contrôleur GC9A01, RTC, gestion écran/tactile
+   - **Installation:** 
+     1. Télécharger ZIP depuis https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay/archive/refs/heads/main.zip
+     2. Arduino IDE → Sketch → Include Library → Add .ZIP Library
+     3. Sélectionner le fichier téléchargé
 
-2. **Seeed_GFX** (Fork de TFT_eSPI)
+### 2. Seeed_GFX (OBLIGATOIRE)
    ```
-   https://github.com/Seeed-Studio/Seeed_GFX.git
+   GitHub: https://github.com/Seeed-Studio/Seeed_GFX
    ```
-   - Primitives graphiques (flèches, texte, etc.)
+   - **Rôle:** Primitives graphiques (fillTriangle, fillScreen, setCursor, etc.)
+   - **Important:** C'est un fork de TFT_eSPI - NE PAS installer TFT_eSPI en même temps
+   - **Installation:**
+     1. Télécharger ZIP depuis https://github.com/Seeed-Studio/Seeed_GFX/archive/refs/heads/main.zip
+     2. Arduino IDE → Sketch → Include Library → Add .ZIP Library
 
-3. **I2C BM8563 RTC** (optionnel, pour horloge RTC)
-   - Rechercher dans Arduino IDE Library Manager
+### 3. Arduino_GFX (OPTIONNEL alternative)
+   ```
+   GitHub: https://github.com/moononournation/Arduino_GFX
+   ```
+   - **Rôle:** Bibliothèque graphique haute performance (alternative à Seeed_GFX)
+   - **Avantage:** Plus léger et rapide si besoin de performances
 
-### Instructions d'Installation
+### 4. I2C BM8563 RTC (OPTIONNEL)
+   - **Rôle:** Horloge temps réel sur Round Display
+   - **Installation:** Arduino IDE Library Manager → rechercher "BM8563"
 
-```bash
-# Sketches → Include Library → Add .ZIP Library
-# Sélectionner les fichiers ZIP téléchargés depuis GitHub
+### 📖 Documentation de Référence
+
+- **Interfaces TFT_eSPI:** https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-tft-library
+  - fillScreen(), drawTriangle(), fillTriangle(), setCursor(), println(), setTextSize()
+
+- **Interfaces LVGL:** https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-lvgl-library
+  - Pour l'UI avancée avec widgets et événements tactiles
+
+### ⚠️ Résolution de Conflits
+
+Si erreur lors de la compilation:
 ```
+Error: Multiple definitions of 'TFT_eSPI'
+```
+→ Vérifier qu'une SEULE de ces bibliothèques est installée:
+- Supprimer TFT_eSPI des librairies Arduino si présente
+- Garder UNIQUEMENT Seeed_GFX
+
+Si l'écran reste noir:
+- Vérifier l'interrupteur ON/OFF du Round Display (en bas à gauche)
+- Appuyer sur le bouton Reset du XIAO
+- Recharger le firmware du tactile (voir troubleshooting wiki)
 
 ---
 

@@ -57,26 +57,55 @@ D7 ← UART RX from Motor Controller
 
 ### Installation in Arduino IDE
 
-1. **Seeed_Arduino_RoundDisplay** (Graphics & Touch)
-   ```
-   https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay.git
-   ```
+#### 1. **Seeed_Arduino_RoundDisplay** (REQUIRED)
+   - **Repository:** https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay
+   - **Function:** Display driver GC9A01, RTC, touch functionality, battery management
+   - **Installation:**
+     1. Download ZIP: https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay/archive/refs/heads/main.zip
+     2. Arduino → Sketch → Include Library → Add .ZIP Library → Select ZIP
 
-2. **Seeed_GFX** (Drawing primitives)
-   ```
-   https://github.com/Seeed-Studio/Seeed_GFX.git
-   ```
+#### 2. **Seeed_GFX** (REQUIRED - Graphics Library)
+   - **Repository:** https://github.com/Seeed-Studio/Seeed_GFX
+   - **Function:** Graphics primitives - `fillTriangle()`, `fillScreen()`, `setCursor()`, `println()`, etc.
+   - **Important:** This is a fork of TFT_eSPI. **DO NOT install both TFT_eSPI and Seeed_GFX**
+   - **Installation:**
+     1. Download ZIP: https://github.com/Seeed-Studio/Seeed_GFX/archive/refs/heads/main.zip
+     2. Arduino → Sketch → Include Library → Add .ZIP Library → Select ZIP
 
-3. **ESP32 Core** (if not already installed)
-   - Board Manager URL: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+#### 3. **Arduino_GFX** (OPTIONAL - Lightweight Alternative)
+   - **Repository:** https://github.com/moononournation/Arduino_GFX
+   - **Function:** High-performance graphics library (lighter than Seeed_GFX)
+   - **Use when:** Performance optimization needed
 
-### Installation Steps
+#### 4. **I2C BM8563 RTC** (OPTIONAL - Real-time Clock)
+   - **Function:** Hardware RTC on Round Display
+   - **Installation:** Arduino Library Manager → Search "BM8563" → Install
 
+### 📖 Reference Documentation
+
+- **TFT_eSPI Function Reference:**  
+  https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-tft-library
+  - Includes: `fillScreen()`, `drawTriangle()`, `setCursor()`, `println()`, `setTextSize()`, color definitions
+
+- **LVGL GUI Framework (Advanced):**  
+  https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-lvgl-library
+  - For complex UI with widgets, touch events, animations
+
+### ⚠️ Troubleshooting Library Conflicts
+
+**Problem: Compilation error "Multiple definitions of 'TFT_eSPI'"**
 ```
-Arduino IDE → Sketch → Include Library → Add .ZIP Library
-Select: Seeed_Arduino_RoundDisplay.zip
-Select: Seeed_GFX.zip
+Solution: Remove TFT_eSPI from Arduino libraries folder
+→ Keep ONLY Seeed_GFX installed
+→ Navigate to: C:\Users\[USERNAME]\Documents\Arduino\libraries\
+→ Delete TFT_eSPI folder if present
 ```
+
+**Problem: Display shows nothing (black screen)**
+1. Check Round Display power switch (bottom-left corner) - must be ON
+2. Press XIAO Reset button
+3. If still black: verify `driver.h` is in project root with `#define BOARD_SCREEN_COMBO 501`
+4. If touch unresponsive: update calibration firmware from https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay/tree/main/examples/TP_firmware_update
 
 ## 🚀 Getting Started
 
