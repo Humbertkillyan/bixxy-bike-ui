@@ -197,15 +197,15 @@ Vérifier câblage avec contrôleur moteur:
 
 ## 🔗 Ressources Utilisées
 
-| Ressource | URL | Rôle |
-|-----------|-----|------|
-| Seeed_Arduino_RoundDisplay | https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay | Pilote principal écran |
-| Seeed_GFX | https://github.com/Seeed-Studio/Seeed_GFX | Graphiques et primitives |
-| Arduino_GFX | https://github.com/moononournation/Arduino_GFX | Alternative légère |
-| TFT Functions Ref | https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-tft-library | Fonctions dessin |
-| LVGL GUI | https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-lvgl-library | UI avancée |
-| XIAO ESP32-S3 Wiki | https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/ | Setup S3 |
-| Round Display Wiki | https://wiki.seeedstudio.com/get_start_round_display/ | Setup Round Display |
+| Ressource | URL | Rôle | Notes |
+|-----------|-----|------|-------|
+| Seeed_Arduino_RoundDisplay | https://github.com/Seeed-Studio/Seeed_Arduino_RoundDisplay | Pilote principal écran | LVGL-based, supports XIAO series |
+| Seeed_GFX | https://github.com/Seeed-Studio/Seeed_GFX | Graphiques et primitives | Fork TFT_eSPI, Online Config Tool |
+| Arduino_GFX | https://github.com/moononournation/Arduino_GFX | Alternative légère | High-performance, 1.6.5+ |
+| TFT Functions Ref | https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-tft-library | Fonctions dessin | fillScreen, drawTriangle, setCursor |
+| LVGL GUI | https://wiki.seeedstudio.com/using_lvgl_and_tft_on_round_display/#common-interfaces-for-lvgl-library | UI avancée | Widgets, events, animations |
+| XIAO ESP32-S3 Wiki | https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/ | Setup S3 | 240MHz, 8MB PSRAM+Flash |
+| Round Display Wiki | https://wiki.seeedstudio.com/get_start_round_display/ | Setup Round Display | 1.28", GC9A01, tactile |
 
 ## ✅ Checklist Finale
 
