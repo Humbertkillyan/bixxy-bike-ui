@@ -1,0 +1,25 @@
+# Arduino build directories
+build/
+dist/
+*.elf
+*.hex
+*.bin
+*.o
+*.a
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Libraries (do not commit)
+libraries/
+
+# User preferences
+*.old
