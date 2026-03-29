@@ -25,7 +25,6 @@
 // Seeed GFX (must be before GFX library includes)
 #include "driver.h"
 #include <Adafruit_GFX.h>
-#include <Arduino_GFX_Library.h>
 
 // Custom headers
 #include "config.h"
